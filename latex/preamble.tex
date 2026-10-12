@@ -1,0 +1,25 @@
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fontspec}
+\setmainfont{Noto Serif CJK KR}[ItalicFont={Noto Serif CJK KR},ItalicFeatures={FakeSlant=0.2},BoldItalicFont={Noto Serif CJK KR Bold},BoldItalicFeatures={FakeSlant=0.2}]
+\setmonofont{Noto Sans Mono CJK KR}
+\newfontfamily\latinfont{Latin Modern Roman}
+\newcommand{\Erdos}{{\latinfont Erd\H{o}s}}
+\setsansfont{Noto Sans CJK KR}
+\XeTeXlinebreaklocale "ko"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\linespread{1.25}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\newtheorem{theorem}{정리}
+\newtheorem{lemma}[theorem]{보조정리}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{정의}
+\newtheorem{example}[theorem]{예}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\spf}{spf}
+\DeclareMathOperator{\spn}{span}
+\renewcommand{\contentsname}{목차}

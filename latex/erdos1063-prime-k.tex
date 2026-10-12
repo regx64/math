@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\DeclareMathOperator{\lcm}{lcm}
+\title{Erd\H{o}s Problem \#1063 for prime $k$:\\ an exact $q$-adic criterion and the lower bound $n_p \ge p^{11/6-\varepsilon}$}
+\author{hoon (regx64)}
+\date{12 October 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Problem.} For $k\ge 2$ let $n_k\ge 2k$ be the least $n$ such that $n-i\mid\binom{n}{k}$ for all but one $0\le i<k$. Estimate $n_k$.
+
+\noindent\textbf{Known.} $n_k\le k!$ (Monier) and $n_k\le k\cdot\lcm(2,\dots,k-1)=e^{(1+o(1))k}$ (Cambie). For prime $k=p$ the available lower bounds give only $n_p\ge p$ up to constants.
+
+\noindent\textbf{Results here.} For prime $k=p$: an exact criterion for admissibility (Theorem~\ref{thm:crit}); the unconditional bound $n_p\ge p^{11/6-\varepsilon}$ (and $p^{39/20-\varepsilon}$ using Jia's theorem), and $n_p\ge p^{2-o(1)}$ under RH (Theorem~\ref{thm:lower}); and a heuristic, supported by the data, that $\log n_p\asymp p/\log p$. In particular $n_p$ is very probably \emph{not} bounded by a polynomial in $p$.
+
+Throughout, $p\ge 5$ is prime, $n\ge 2p$, and we write
+\[
+n = Mp+i_0,\qquad 0\le i_0<p,\qquad M=\lfloor n/p\rfloor\ge 2 .
+\]
+Call $n$ \emph{admissible} if $n-i\mid\binom np$ for all but one $0\le i<p$. The block is $\mathcal B=\{n-i:0\le i<p\}$.
+
+\section{Reduction to valuations}
+
+Clearly $n-i\mid\binom np$ if and only if $v_q(n-i)\le v_q\binom np$ for every prime $q$. For $q>p$ we have $q\nmid p!$, so $v_q\binom np=\sum_{j}v_q(n-j)\ge v_q(n-i)$. Hence only primes $q\le p$ matter. We use Kummer's theorem in the form
+\begin{equation}\label{eq:kummer}
+v_q\binom np=\#\{\,j\ge1:\ n\bmod q^j< p\bmod q^j\,\}.
+\end{equation}
+
+\begin{lemma}[the excluded index]\label{lem:p}
+$v_p\binom np=v_p(n-i_0)-1$. Consequently $n-i_0\nmid\binom np$, and the excluded index of an admissible $n$ is always $i_0=n\bmod p$.
+\end{lemma}
+\begin{proof}
+In \eqref{eq:kummer} with $q=p$, the case $j=1$ never counts since $p\bmod p=0$. For $j\ge2$ we have $p\bmod p^j=p$. Also $n\bmod p^j<p$ holds if and only if $n\bmod p^j=i_0$, i.e.\ $p^j\mid n-i_0$. So the count is $v_p(n-i_0)-1$. Every other $n-i$ is prime to $p$.
+\end{proof}
+
+So $n$ is admissible if and only if, for every prime $q<p$ and every $i\ne i_0$, $v_q(n-i)\le v_q\binom np$.
+
+\section{The exact criterion}
+
+For a prime $q<p$ put $L_q=\lfloor\log_q p\rfloor\ge1$. Define
+\[
+e_q=\max_{0\le i<p}v_q(n-i),\qquad e_q^{*}=\max_{i\ne i_0}v_q(n-i),\qquad
+D_q=\#\{\,1\le j\le L_q:\ n\bmod q^j\ge p\bmod q^j\,\}.
+\]
+
+\begin{lemma}\label{lem:val}
+$v_q\binom np=e_q-D_q$.
+\end{lemma}
+\begin{proof}
+$\mathcal B$ consists of $p\ge q^{L_q}$ consecutive integers, so it contains a multiple of $q^{L_q}$, and $e_q\ge L_q$. For $j>L_q$ we have $p\bmod q^j=p$. Then $n\bmod q^j<p$ if and only if $\mathcal B$ contains a multiple of $q^j$, i.e.\ $j\le e_q$. So the indices $j>L_q$ contribute $e_q-L_q$ to \eqref{eq:kummer}. The indices $j\le L_q$ contribute $L_q-D_q$ by definition.
+\end{proof}
+
+\begin{theorem}[criterion]\label{thm:crit}
+$n\ge 2p$ is admissible if and only if, for every prime $q<p$,
+\[
+D_q=0\qquad\text{or}\qquad v_q(n-i_0)\ \ge\ e_q^{*}+D_q .
+\]
+\end{theorem}
+\begin{proof}
+By Lemmas~\ref{lem:p} and~\ref{lem:val}, admissibility means $e_q^{*}\le e_q-D_q$ for all $q<p$. If $D_q=0$ this always holds. If $D_q\ge1$ it forces $e_q^{*}<e_q$. Then the maximum $e_q$ is attained only at $i_0$, and the condition reads $v_q(n-i_0)\ge e_q^{*}+D_q$.
+\end{proof}
+
+\begin{corollary}[large primes]\label{cor:large}
+Let $q$ be a prime with $p/2<q<p$. Then $q$ satisfies the condition of Theorem~\ref{thm:crit} if and only if
+\[
+\text{(a)}\ \ n\bmod q<p-q\qquad\text{or}\qquad\text{(b)}\ \ q\mid M .
+\]
+\end{corollary}
+\begin{proof}
+Here $q^2>p$, so $L_q=1$ and $p\bmod q=p-q$. Thus $D_q=0$ is exactly (a). If (a) fails, write $r=n\bmod q\ge p-q$. Then $r+q\ge p$, so $n-r$ is the only multiple of $q$ in $\mathcal B$. The condition $v_q(n-i_0)\ge e_q^{*}+1$ then holds if and only if this multiple is $n-i_0=pM$. Since $q\ne p$, that means $q\mid M$.
+\end{proof}
+
+\noindent\textbf{Verification.} We checked Theorem~\ref{thm:crit} against the definition, computing $\binom np$ valuations directly. The check covered every $n$ with $2p\le n<20000$ and every $p\in\{5,7,11,13,17,19,23\}$: $139{,}810$ pairs, of which $7{,}931$ are admissible, with no mismatch.
+
+\section{Lower bounds up to the $p^2$ barrier}
+
+\subsection{The primes $q\in(p/2,p)$}
+
+\begin{lemma}[structure]\label{lem:struct}
+Assume $M<p/2$. Let $q=p-g$ be a prime with $1\le g<p/2$. Then $q$ satisfies the condition of Theorem~\ref{thm:crit} if and only if
+\[
+g\in\bigcup_{j\ge1}I_j,\qquad I_j=[a_j,b_j),\quad a_j=\frac{jp-i_0}{M+j},\quad b_j=\frac{jp-i_0}{M+j-1}.
+\]
+\end{lemma}
+\begin{proof}
+We have $q>p/2>M\ge2$, so $q\nmid M$. By Corollary~\ref{cor:large} the condition is (a): $n\bmod q<g$. Write $n=Mq+s$ with $s=Mg+i_0$, and put $j=\lfloor s/q\rfloor$. Then
+\[
+n\bmod q=s-jq=(M+j)g+i_0-jp .
+\]
+So (a) holds if and only if $0\le (M+j)g+i_0-jp<g$, i.e.\ $g\in I_j$. Conversely, if $g\in I_j$ for some $j$, then $s-jq\in[0,g)\subset[0,q)$, so this $j$ equals $\lfloor s/q\rfloor$ and (a) holds. Finally $j=0$ is impossible, since it would need $(M-1)g<-i_0$.
+\end{proof}
+
+\noindent\textbf{Verification.} We checked Lemma~\ref{lem:struct} for every prime $11\le p<200$, every $2p\le n<40p$ and every prime $q\in(p/2,p)$: $2{,}091{,}482$ triples, with no disagreement.
+
+\begin{lemma}[many prime-free gaps]\label{lem:gaps}
+Let $n$ be admissible with $8\le M<p/2$. For $1\le j\le\lfloor M/4\rfloor$ the intervals $J_j=[b_j,a_{j+1})$ are pairwise disjoint and contained in $(0,p/2)$. Each has length at least $\frac{2p}{9M}$, and no $g\in J_j$ makes $p-g$ prime.
+\end{lemma}
+\begin{proof}
+A direct computation gives
+\[
+a_{j+1}-b_j=\frac{p(M-1-j)+2i_0}{(M+j+1)(M+j-1)}\ \ge\ \frac{p(M-1-j)}{(M+j+1)^2}.
+\]
+For $j\le M/4$ and $M\ge 8$ we have $M-1-j\ge M/2$ and $M+j+1\le 3M/2$, so the length is at least $\frac{2p}{9M}$. Also $a_{j+1}<\frac{(j+1)p}{M+j+1}<\frac p2$ because $j+1<M$. The intervals are ordered as $a_1<b_1<a_2<b_2<\cdots$, so the $J_j$ are disjoint gaps between consecutive $I_j$. By Lemma~\ref{lem:struct}, a prime $p-g$ with $g\in J_j$ would violate admissibility.
+\end{proof}
+
+\begin{lemma}[small $M$]\label{lem:smallM}
+For all sufficiently large $p$, $M=\lfloor n_p/p\rfloor\ge 8$.
+\end{lemma}
+\begin{proof}
+Suppose $2\le M<8$. The set $[1,a_1)\cup[b_1,p/(2M))$ consists of gaps of Lemma~\ref{lem:struct}. Note $p/(2M)\le a_2$, since $M\ge 2$, and both pieces lie in $g<p/4$, i.e.\ $q\in(3p/4,p)$. Put $A=a_1$, $B=b_1$, $C=p/(2M)$.
+If $B\le C$, the total length is $(A-1)+(C-B)=C-(B-A)-1$. Since $B-A=\frac{p-i_0}{M(M+1)}\le\frac{p}{M(M+1)}$, this is at least $\frac{p(M-1)}{2M(M+1)}-1\ge\frac{p}{6M}-1$.
+If $B>C$, then $p-i_0>p/2$, so $\min(A,C)-1\ge\frac{p}{3M}-1$.
+Either way one piece has length at least $\frac{p}{12M}-1>\frac{p}{100}$. So $(3p/4,p)$ would contain a prime-free interval of length $p/100$, which contradicts the prime number theorem for large $p$.
+\end{proof}
+
+\subsection{The bound}
+
+For $0<\theta<1$ say that $\theta$ is \emph{admissible for short intervals} if
+\[
+\#\{\,x\le X:\ (x,\,x+x^{\theta}]\ \text{contains no prime}\,\}=o(X)\qquad(X\to\infty).
+\]
+Huxley (1972) showed every $\theta>1/6$ is admissible.
+
+\begin{theorem}\label{thm:lower}
+If $\theta$ is admissible for short intervals, then $n_p\ge p^{2-\theta}/10$ for all sufficiently large primes $p$. In particular, unconditionally,
+\[
+n_p\ \ge\ p^{11/6-\varepsilon}\qquad(p\ge p_0(\varepsilon)).
+\]
+\end{theorem}
+\begin{proof}
+Let $n=n_p$. If $M\ge p/2$ then $n\ge p^2/2$. Otherwise $8\le M<p/2$ by Lemma~\ref{lem:smallM}. Let $\ell=\frac{2p}{9M}$ and suppose $\ell\ge 2p^{\theta}+6$.
+
+Each gap $J_j$ from Lemma~\ref{lem:gaps} corresponds to a prime-free interval of $q=p-g$ inside $(p/2,p)$ of length at least $\ell$. It contains at least $\ell-p^\theta-3\ge \ell/2$ integers $x$ with $(x,x+p^\theta]$ inside the same interval, so $(x,x+x^\theta]$ has no prime. There are at least $\lfloor M/4\rfloor\ge M/8$ disjoint gaps. This gives at least $\frac M8\cdot\frac{p}{9M}=\frac{p}{72}$ exceptional integers $x\in(p/2,p)$, contradicting admissibility of $\theta$ with $X=p$.
+
+Hence $\ell<2p^\theta+6$, i.e.\ $M>\frac{p}{9(p^\theta+3)}\ge\frac{p^{1-\theta}}{10}$ for large $p$, and $n\ge pM\ge p^{2-\theta}/10$.
+\end{proof}
+
+\begin{remark}
+(1) The single gap below $a_1$ together with Baker--Harman--Pintz already gives $n_p\gg p^{1.475}$. Theorem~\ref{thm:lower} uses all $\asymp M$ gaps at once.
+
+(2) Any almost-all exponent transfers directly. Jia (1996) proved that every $\theta>1/20$ is admissible, which gives $n_p\ge p^{39/20-\varepsilon}$ unconditionally. A recent preprint of R.~Li (arXiv:2407.05651) claims $\theta>1/21.5$, which would give $n_p\ge p^{2-2/43-\varepsilon}$. Huxley's exponent is used in the theorem because it is the classical, fully standard input. Under RH, Selberg's theorem (almost all intervals $(x,x+f(x)\log^2x]$ contain a prime, for any $f\to\infty$) gives $n_p\gg p^2/(f(p)\log^2p)$.
+
+(3) The method stops at $p^2$. Once $M\ge p$, the gaps $J_j$ have length below $1$. Beyond that point, sieve-type upper bounds (e.g.\ the large sieve) only show that admissible $n\le X$ are rare, not absent, so a super-polynomial lower bound needs a new idea.
+\end{remark}
+
+\section{Heuristic size and data}
+
+By Theorem~\ref{thm:crit}, admissibility is essentially the event ``$D_q=0$ for all $q<p$'', except for a few primes paid for by divisibility of $M$. For $\sqrt p<q<p$ this event is $n\bmod q<p\bmod q$. For $q\in(p/(m+1),p/m]$ the ratio $(p\bmod q)/q$ is roughly uniform on $(0,1)$, so each such prime costs a factor about $e^{-1}$ on average. The primes $q\le\sqrt p$ contribute $e^{O(\sqrt p)}$. Treating the conditions as independent suggests
+\[
+\log n_p \asymp \pi(p)\asymp \frac{p}{\log p},
+\]
+strictly between polynomial and Cambie's $e^{(1+o(1))p}$. The data below (each value re-verified as admissible, and for $p\le31$ as minimal by exhaustive search) fit $\log n_p\approx\pi(p)$ well.
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$p$ & $n_p$ & $M$ & $i_0$ & $\log n_p$ & $\log n_p/\pi(p)$\\
+\midrule
+5 & 12 & 2 & 2 & 2.48 & 0.83\\
+7 & 30 & 4 & 2 & 3.40 & 0.85\\
+11 & 280 & 25 & 5 & 5.63 & 1.13\\
+13 & 210 & 16 & 2 & 5.35 & 0.89\\
+17 & 1456 & 85 & 11 & 7.28 & 1.04\\
+19 & 612 & 32 & 4 & 6.42 & 0.80\\
+23 & 2640 & 114 & 18 & 7.88 & 0.88\\
+29 & 34776 & 1199 & 5 & 10.46 & 1.05\\
+31 & 8100 & 261 & 9 & 9.00 & 0.82\\
+37 & 665280 & 17980 & 20 & 13.41 & 1.12\\
+41 & 1154440 & 28157 & 3 & 13.96 & 1.07\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Conjecture.} $\log n_p\asymp p/\log p$ as $p\to\infty$ through primes. In particular $n_p\ne p^{O(1)}$.
+
+\end{document}

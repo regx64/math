@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\title{미해결 문제 시도 기록}
+\author{hoon (regx64)}
+\date{2026년 10월 12일 기준}
+\begin{document}
+\maketitle
+\tableofcontents
+
+%======================================================
+\section{\Erdos{} \#1063: $k$가 소수인 경우}
+\textbf{문제.} $k\ge2$에 대해 $n_k\ge2k$를, $0\le i<k$ 중 단 하나를 빼고 모두 $n-i\mid\binom nk$가 되는 가장 작은 $n$이라 하자. $n_k$를 추정하라.
+
+\textbf{기존 결과.} Monier $n_k\le k!$, Cambie $n_k\le k\cdot\lcm(2,\dots,k-1)=e^{(1+o(1))k}$. 소수 $k=p$에 대한 하한은 $n_p\ge p$ 정도.
+
+\textbf{얻은 것.} 정확한 판정 조건, 하한 $n_p\ge p^{11/6-\varepsilon}$, 휴리스틱 $\log n_p\asymp p/\log p$. 전체 증명은 별도 노트(영문)에 있다.
+
+\subsection{판정 조건}
+$n=Mp+i_0$ ($0\le i_0<p$)로 쓴다. 쿰머 정리
+\[
+v_q\binom np=\#\{j\ge1:\ n\bmod q^j<p\bmod q^j\}
+\]
+에서 $v_p\binom np=v_p(n-i_0)-1$이므로 빠지는 $i$는 항상 $i_0$다. 소수 $q<p$에 대해 $L_q=\lfloor\log_qp\rfloor$,
+$e_q=\max_iv_q(n-i)$, $e_q^*=\max_{i\ne i_0}v_q(n-i)$, $D_q=\#\{1\le j\le L_q:n\bmod q^j\ge p\bmod q^j\}$로 두면 $v_q\binom np=e_q-D_q$.
+
+\begin{theorem}
+$n\ge2p$가 조건을 만족할 필요충분조건은, 모든 소수 $q<p$에 대해 $D_q=0$이거나 $v_q(n-i_0)\ge e_q^*+D_q$인 것이다.
+\end{theorem}
+$q\in(p/2,p)$이면 ``$n\bmod q<p-q$ 또는 $q\mid M$''이 된다. $p\le23$, $n<20000$인 139{,}810쌍에서 직접 계산과 일치했다.
+
+\subsection{하한}
+$M<p/2$이고 $q=p-g\in(p/2,p)$가 소수이면, $q$가 조건을 만족하는 것은
+\[
+g\in\bigcup_{j\ge1}\Big[\tfrac{jp-i_0}{M+j},\ \tfrac{jp-i_0}{M+j-1}\Big)
+\]
+일 때뿐이다. 구간 사이의 틈 $J_j$ ($1\le j\le M/4$)에는 소수 $p-g$가 없어야 하고, 길이는
+\[
+\frac{p(M-1-j)+2i_0}{(M+j+1)(M+j-1)}\ \ge\ \frac{2p}{9M}.
+\]
+Huxley 정리(거의 모든 $(x,x+x^{\theta}]$, $\theta>1/6$에 소수가 있음)와 모순되지 않으려면 $M\gtrsim p^{1-\theta}$이고,
+\[
+n_p\ge p^{11/6-\varepsilon}.
+\]
+Jia ($\theta>1/20$)를 쓰면 $p^{39/20-\varepsilon}$, RH 가정 시 $p^{2-o(1)}$. $M\ge p$에서 틈 길이가 1 미만이 되므로 이 방법은 $p^2$에서 멈춘다.
+
+\subsection{데이터}
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$p$ & $n_p$ & $M$ & $i_0$ & $\log n_p$ & $\log n_p/\pi(p)$\\
+\midrule
+5 & 12 & 2 & 2 & 2.48 & 0.83\\
+7 & 30 & 4 & 2 & 3.40 & 0.85\\
+11 & 280 & 25 & 5 & 5.63 & 1.13\\
+13 & 210 & 16 & 2 & 5.35 & 0.89\\
+17 & 1456 & 85 & 11 & 7.28 & 1.04\\
+19 & 612 & 32 & 4 & 6.42 & 0.80\\
+23 & 2640 & 114 & 18 & 7.88 & 0.88\\
+29 & 34776 & 1199 & 5 & 10.46 & 1.05\\
+31 & 8100 & 261 & 9 & 9.00 & 0.82\\
+37 & 665280 & 17980 & 20 & 13.41 & 1.12\\
+41 & 1154440 & 28157 & 3 & 13.96 & 1.07\\
+\bottomrule
+\end{tabular}
+\end{center}
+문제 페이지, 포럼, OEIS A389360에는 소수 $k$에서 $p$를 넘는 하한이 없다. \Erdos{}–Selfridge(1983), Monier(1985), Guy B31 원문은 확인하지 못했다.
+
+%======================================================
+\section{\Erdos{} \#1110: $\{2,9\}$}
+\textbf{문제.} 서로소인 $p>q\ge2$에 대해, 서로 나누지 않는 $p^kq^l$ 꼴 수들의 합으로 쓸 수 있으면 $n$을 표현 가능하다고 하자. $\{p,q\}\ne\{2,3\}$이면 $pq$와 서로소인 표현 불가능한 수가 무한히 많은가? Yu–Chen(2022) 이후 $\{2,5\},\{2,9\},\{3,5\}$만 남았다.
+
+목표는 $9^a-2$가 모든 $a$에서 표현 불가능함을 보이는 것이다 ($\gcd(9^a-2,18)=1$). 수치로는 $a\le29$에서 표현 불가능하다.
+
+표현이 있다고 가정하고 항을 $9^{k_i}2^{l_i}$ ($k$ 증가, $l$ 감소)로 쓰면:
+\begin{enumerate}[nosep]
+\item $k=0$인 항 $2^d$와 $l=0$인 항 $9^c$가 정확히 하나씩 있고 $c<a$.
+\item $2^{d-1}\equiv-1\pmod9$이므로 $d\equiv4\pmod6$.
+\item LTE: $v_3(2^d+2)=1+v_3(d-1)=2k_1$, 즉 $3^{2k_1-1}\,\|\,d-1$이고 $k_1=O(\log a)$.
+\item 중간 항 중 $l$이 가장 작은 두 항은 $l=1,2$. 항은 최소 4개.
+\item $c$와 $S=\{k_i\}\subset\{1,\dots,c-1\}$만 정하면 $l=v_2(R)$로 모든 $l$이 결정된다. 따라서 표현 가능성은 $2^{a-1}-1$가지 경우 중 마지막 잔여가 2의 거듭제곱인 것이 있는지와 동치다.
+\end{enumerate}
+남은 등식 $9^a-2-2^d-9^c=\sum_i3^{2k_i}2^{l_i}$은 콜라츠 순환 방정식과 같은 구조여서 받아올림 분석만으로는 닫히지 않는다.
+
+%======================================================
+\section{\Erdos{} \#1212: 서로소 격자 위의 무한 경로}
+\textbf{문제.} 꼭짓점이 $\{(x,y)\in\mathbb N^2:\gcd(x,y)=1\}$이고 한 좌표만 $\pm1$ 차이 나면 이웃인 그래프에서, 모든 점이 $\min(x,y)>1$이고 $x,y$ 중 하나 이상이 합성수인 무한 경로가 있는가?
+
+Stewart 경로 $(p_k,p_{k+1})\to(p_k,p_{k+2})\to(p_{k+1},p_{k+2})$는 소수–소수 꼭짓점을 지난다.
+\begin{itemize}[nosep]
+\item 국소 우회: 소수 약 $3.5\times10^5$까지 군집 약 53{,}000개 중 21{,}580개는 반경 40 안에 우회 경로가 없었다.
+\item $\spf$가 큰 합성수로 계단 만들기: 무조건적으로는 길이 $H$ 구간에 $\spf>H^{\varepsilon}$인 합성수까지만 보장되고, 계단을 이으면 하한이 $s\to s^{\varepsilon}$으로 줄어 무너진다.
+\end{itemize}
+
+%======================================================
+\section{퍼콜레이션 임계값 주장 검토}
+디시인사이드에 올라온 ``돌파'' 주장과 GitHub 저장소를 검토했다.
+\begin{itemize}[nosep]
+\item Volume 1의 핵심 결과는 맞지만 Harris–Kesten 정리의 따름정리다.
+\item ``70년 미해결''이라는 표현은 과장이다.
+\item 새로운 것은 Floor 6 (Sturmian 치환 + Hecke–Mahler로 초월수 $p_c$)뿐이고, 극한 격자 구성의 연속성 논증에 빈틈이 있다.
+\end{itemize}
+
+\end{document}

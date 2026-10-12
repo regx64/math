@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\title{학습 노트}
+\author{hoon (regx64)}
+\date{2026년 10월 12일 기준}
+\begin{document}
+\maketitle
+\tableofcontents
+
+%======================================================
+\section{미적분 → 다변수 미적분}
+목표는 비압축성 나비에–스토크스 방정식을 수학적으로 읽는 것이다.
+\[
+\rho\Big(\frac{\partial \mathbf u}{\partial t}+(\mathbf u\cdot\nabla)\mathbf u\Big)=-\nabla p+\mu\nabla^2\mathbf u+\mathbf f,\qquad \nabla\cdot\mathbf u=0.
+\]
+로드맵: 1변수 미적분 → 다변수 미적분 → 벡터 미적분 → ODE/PDE → 선형대수.
+
+\subsection{1변수}
+\begin{itemize}[nosep]
+\item 극한: 대입하면 $0/0$이 되는 경우 인수분해로 처리, 좌극한·우극한.
+\item 연속: $\lim_{x\to a}f(x)=f(a)$. 좌극한$=$우극한은 극한이 \emph{존재}한다는 뜻일 뿐이다. 연속이려면 $f(a)$가 정의되어 있고 그 값과 같아야 한다.
+\item 미분계수: $f'(a)=\lim_{h\to0}\dfrac{f(a+h)-f(a)}{h}$. 할선 기울기가 접선 기울기로 수렴한다.
+\item 도함수 규칙: 거듭제곱, 곱의 법칙, 연쇄법칙 $\big(f(g(x))\big)'=f'(g(x))\,g'(x)$.
+\item 활용: 증가·감소, 극값, 부호표.
+\item 부정적분, 정적분, 미적분학의 기본정리 $\dfrac{d}{dx}\displaystyle\int_a^x f(t)\,dt=f(x)$.
+\end{itemize}
+
+\subsection{다변수}
+\begin{itemize}[nosep]
+\item 편미분, 다변수 연쇄법칙.
+\item 이계편미분, Clairaut 정리 $f_{xy}=f_{yx}$ (2계 편도함수가 연속일 때).
+\item 그래디언트 $\nabla f$: 등고선에 수직이고 가장 가파른 오르막 방향.
+\item 발산 $\nabla\cdot\mathbf F=\partial_xF_1+\partial_yF_2+\partial_zF_3$.
+\item 회전 $\nabla\times\mathbf F=(\partial_yF_3-\partial_zF_2,\ \partial_zF_1-\partial_xF_3,\ \partial_xF_2-\partial_yF_1)$.
+\item 다변수 극값: 임계점, 안장점, 이차미분판정법 $D=f_{xx}f_{yy}-f_{xy}^2$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+항 & 수학\\
+\midrule
+$-\nabla p$ & 압력의 그래디언트\\
+$\mu\nabla^2\mathbf u$ & 라플라시안 (점성)\\
+$\nabla\cdot\mathbf u=0$ & 발산 0 (비압축)\\
+$(\mathbf u\cdot\nabla)\mathbf u$ & 대류항, 연쇄법칙에서 나옴\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+자주 한 실수: 연쇄법칙에서 안쪽 함수의 미분 누락, 회전 공식의 항 순서 반대로 적용, 연립방정식 대입 계산 실수.
+
+다음: $\nabla\times(\nabla f)=\mathbf 0$, $\nabla\cdot(\nabla\times\mathbf F)=0$, $\nabla\cdot(\nabla f)=\nabla^2 f$ 같은 관계를 묻는 종합 문제.
+
+%======================================================
+\section{푸리에 변환}
+2026년 10월 10일 시작. 선수지식까지 포함해 엄밀하게 배우고 자유롭게 적용하는 수준이 목표다. 교재는 한국어 \texttt{푸리에\_변환.pdf} (103쪽).
+
+\subsection{교재 구성}
+\begin{enumerate}[nosep,start=0]
+\item 준비: 삼각함수 (라디안, 단위원, 덧셈정리, 작은 각 근사)
+\item 미적분 도구와 복소지수 $e^{j\theta}=\cos\theta+j\sin\theta$
+\item 선형대수: 기저와 좌표, 행렬, 내적공간, 정규직교기저, 고유벡터
+\item 이산 푸리에 변환
+\item 푸리에 급수
+\item 푸리에 변환과 성질, 변환쌍 표
+\item 델타 함수
+\item LTI 시스템과 합성곱
+\item 표본화 정리, FFT
+\item 불확정성 원리
+\item 확장: STFT, 2차원 변환, 라플라스 변환, 열방정식
+\end{enumerate}
+규약은 전기공학식이다.
+\[
+X(\omega)=\int_{-\infty}^{\infty}x(t)\,e^{-j\omega t}\,dt,\qquad
+x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\,e^{j\omega t}\,d\omega.
+\]
+핵심 관점: 푸리에 변환은 ``시각별 값''이라는 좌표를 ``주파수별 성분''이라는 좌표로 바꾸는 기저 변환이다.
+
+\subsection{진도}
+0장 진행 중. 반지름 $c$인 원 위의 점은 $(c\cos\theta,\ c\sin\theta)$이고, 단위원은 $c=1$인 경우다.
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+연습문제 & 필요한 절\\
+\midrule
+0.1 & 0.1\\
+0.2 & 0.3, 0.6\\
+0.3 & 0.2\\
+0.4 & 0.4\\
+0.5 & 0.5\\
+0.6, 0.7, 0.9 & 0.7\\
+0.8 & 0.6\\
+\bottomrule
+\end{tabular}
+\end{center}
+속도 기준은 하루 1–2절이다. 증명을 다시 쓰고 연습문제를 보지 않고 풀 수 있으면 완료로 본다.
+
+%======================================================
+\section{선형대수}
+2026년 10월 9일 시작. 기한 없이 전 분야를 다룬다. 시작 시점에는 연립방정식은 풀 수 있지만 행렬로 푸는 법은 몰랐다.
+
+\begin{itemize}[nosep]
+\item 선형결합, $\spn$, 일차독립, 기저와 차원. 기저가 정해지면 좌표는 유일하다.
+\item 행렬–벡터 곱은 열들의 선형결합: $A\mathbf x=x_1\mathbf a_1+\cdots+x_n\mathbf a_n$.
+\item 연립방정식 $c_1+c_2=5,\ c_1-c_2=1$은 한 줄로
+$\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}3\\2\end{pmatrix}=\begin{pmatrix}5\\1\end{pmatrix}$.
+\item 선형변환 $L(a\mathbf x+b\mathbf y)=aL(\mathbf x)+bL(\mathbf y)$. $AB$는 ``$B$ 다음 $A$''이고 일반적으로 $AB\ne BA$.
+\item 역행렬이 있으면 $A\mathbf x=\mathbf b\Rightarrow\mathbf x=A^{-1}\mathbf b$.
+\end{itemize}
+다음: 가우스 소거법, 행렬식, 랭크, 고유값, 내적공간.
+
+%======================================================
+\section{P vs NP}
+\begin{itemize}[nosep]
+\item P: 다항 시간 $O(n^c)$에 풀 수 있는 문제. NP: 답이 주어지면 다항 시간에 검증할 수 있는 문제.
+\item 부분집합 합: 부분집합 $2^n$개를 다 시도하면 지수 시간, 주어진 부분집합의 합 확인은 $O(n)$.
+\item ``어려워 보인다''와 ``어렵다고 증명됐다''는 다르다. 소수 판정은 2002년 AKS로 P임이 증명됐다.
+\item $n=100$이면 $n^3=10^6$, $2^{100}\approx1.27\times10^{30}$. 초당 $10^9$회 연산이면 $2^{100}$번은 약 $4\times10^{13}$년.
+\end{itemize}
+형식적 정의: $L\in\mathrm{NP}$ $\iff$ 다항식 $p$와 다항 시간 검증기 $V$가 있어
+\[
+x\in L\iff \exists\,w,\ |w|\le p(|x|):\ V(x,w)=1.
+\]
+다음: 다항 시간 환원, NP-완전, Cook–Levin 정리.
+
+%======================================================
+\section{도형의 방정식}
+\subsection{직접 유도한 접선 공식}
+원 $x^2+y^2=r^2$ 밖의 점 $P(p,q)$에서 그은 접선. $d^2=p^2+q^2$, $\ell=\sqrt{d^2-r^2}$일 때
+\[
+r(px+qy)\pm\ell(py-qx)=rd^2.
+\]
+$P$ 중심 꼴은 $r(uX+vY)\pm\ell(uY-vX)=0$, 복소수 꼴은 법선 $N=(u+vi)(r\pm\ell i)$에 대해 $N_1(x-p)+N_2(y-q)=0$이다. Lean 4로 임의의 가환환 위에서 검증했다.
+
+\subsection{삼각형의 내심}
+네 가지 동치 표현: 각의 이등분선의 교점, 세 변까지 거리가 같은 점, $\angle BIC=90^\circ+\tfrac A2$, $I=\dfrac{aA+bB+cC}{a+b+c}$.
+
+세 직선이 주어지면 점–직선 거리를 같게 놓고, 부호는 맞은편 꼭짓점을 대입해 정한다.
+\begin{itemize}[nosep]
+\item $x=0,\ y=0,\ 3x+4y-12=0$ → $I(1,1)$, $r=1$.
+\item $y=0,\ 5x-12y+60=0,\ 3x+4y-12=0$ → $I(-2,2)$, $r=2$.
+\end{itemize}
+
+\end{document}
