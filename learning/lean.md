@@ -11,3 +11,9 @@ Lean은 정리 증명기이자 함수형 프로그래밍 언어다. 정의·정�
 ## 직접 한 것
 
 - 원 밖의 점에서 그은 접선 공식 $r(px+qy)\pm\ell(py-qx)=rd^2$를 Lean 4 (v4.23.0, core only, Mathlib 없이)로 임의의 가환환 위에서 검증. 회전·복소수 해석도 별도 파일로 검증. → [analytic-geometry.md](analytic-geometry.md)
+
+## 파일
+- [`lean/Tangent.lean`](../lean/Tangent.lean): 법선벡터 $n=(rp-s\ell q,\ rq+s\ell p)$로 쓴 공식과 같음, 직선이 $P$를 지남, $|n|^2=d^4$(거리 $=r$), 원과의 공통점은 $T=rn/d^2$ 하나뿐, 두 접선($s=\pm1$)이 다름
+- [`lean/TangentSimple.lean`](../lean/TangentSimple.lean): $P$를 각 $\alpha$($\cos\alpha=r/d$, $\sin\alpha=\ell/d$)만큼 돌린 회전 형태, 복소수 형태 $T\bar P=r(r+is\ell)$
+
+모두 Mathlib 없이 `grind` 전술로 증명하고, 정수 예제는 `decide`로 확인한다. 실행: Lean 4 v4.23.0에서 `lean lean/Tangent.lean`.

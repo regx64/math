@@ -82,5 +82,9 @@ $$
 
 판별식 $25-20>0$이라 원이 실제로 두 개다.
 
-## 원본 파일 (이 저장소에 없음)
-"Unknown purpose inquiry" 채팅(2026-09-27)에서 만든 다음 파일은 다시 올려야 들어온다: 기본·심화 공식 정리 PDF, 공식별 예제 풀이 PDF, Lean 4 검증 파일 2개(접선 공식, 회전·복소수 해석), 접선 공식 유도 애니메이션 MP4.
+## 자료
+- 교과서 범위 공식 정리 (5쪽): [formulas-basic.pdf](../materials/geometry/formulas-basic.pdf)
+- 교과서 밖 실전 공식 모음 (5쪽, 신발끈·직선 심화·포락선·원 심화·최단거리·계산 단축): [formulas-advanced.pdf](../materials/geometry/formulas-advanced.pdf)
+- 같은 공식 모음에 공식별 예제와 풀이를 붙인 판 (7쪽): [formulas-advanced-examples.pdf](../materials/geometry/formulas-advanced-examples.pdf)
+- 접선 공식 유도 애니메이션 (62초, 1280×720): [tangent-derivation.mp4](../materials/geometry/tangent-derivation.mp4)
+- Lean 4 검증: [lean/Tangent.lean](../lean/Tangent.lean) (성분 공식, 접점의 유일성, 두 접선이 다름), [lean/TangentSimple.lean](../lean/TangentSimple.lean) (회전 형태, 복소수 형태)

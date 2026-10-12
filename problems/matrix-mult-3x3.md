@@ -48,9 +48,20 @@ Wang의 증명 구조:
 
 한 것:
 
-- 용량 판정기를 C로 독립 재구현 (인증서는 [wcgbg/matrix-multiplication-n333r21f2](https://github.com/wcgbg/matrix-multiplication-n333r21f2)). 부분공간 8,283,458개, 1차원 $E$에서 $L=19$로 논문과 일치. 실제 23항 해 20개가 모두 $r=23$ 조건을 통과(양성 대조).
+- 용량 판정기를 C로 독립 재구현: [code/capacity.c](code/capacity.c), 인증서 변환 [code/parse_cert.py](code/parse_cert.py). 인증서는 [wcgbg/matrix-multiplication-n333r21f2](https://github.com/wcgbg/matrix-multiplication-n333r21f2)의 `certs/matrix/cert_matrix_q02_n333.pb.txt` (Git LFS로 받아야 함). 부분공간 8,283,458개, 1차원 $E$에서 $L=19$로 논문과 일치. 실제 23항 해 20개가 모두 $r=23$ 조건을 통과(양성 대조).
 - **실험 1:** 23항 해 20개에서 항 2개를 뺀 21항 배치 5,060개 → $r=21$ 통과 0개. 1개를 뺀 22항 배치 460개 → $r=22$ 통과 0개. 해마다 용량이 꽉 찬 부분공간이 33~142개라서 알려진 해 근처에는 $r=21$ 프로파일이 없다.
 - **실험 2:** 처음부터 담금질 탐색. $r=21$에서 위반량 5까지, 대조군 $r=23$도 1에서 멈춤 → 탐색기가 약하다는 것만 보여줌. 결론 없음.
+
+### 판정기 실행
+```
+cp <wcgbg 저장소>/certs/matrix/cert_matrix_q02_n333.pb.txt .
+python3 parse_cert.py                 # -> orbits.txt (궤도 대표와 하한 L)
+gcc -O3 -o capacity capacity.c -lm
+./capacity control r23.txt            # 23항 해의 첫 인자가 r=23 용량 조건을 통과하는지 (양성 대조)
+./capacity sub r23.txt                # 항 2개/1개를 뺀 배치를 r=21/22로 검사 (실험 1)
+./capacity sa 21 400000 1             # r=21 담금질 탐색 (실험 2)
+```
+`r23.txt`는 `flip333`이 rank 23에 도달하면 저장하는 파일이다. 판정기는 부분공간 표를 해시로 펼치는 데 메모리 약 600MB를 쓴다.
 
 ## 다음 공격 지점
 1차원 $E=\langle U\rangle$, 즉 hyperplane 제한의 bound가 세 궤도($U$의 rank 1, 2, 3) 모두

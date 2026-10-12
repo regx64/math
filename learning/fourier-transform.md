@@ -2,7 +2,7 @@
 
 시작: 2026-10-10. 목표는 필요한 선수지식(미적분, 선형대수)까지 포함해 푸리에 변환을 엄밀하게 배우고 자유롭게 적용할 수 있는 수준.
 
-교재: 직접 요청해 만든 한국어 교재 `푸리에_변환.pdf` (103쪽, 연습문제 약 50개와 풀이). 원본 PDF는 이 저장소에 아직 없음.
+교재: 직접 요청해 만든 한국어 교재 [`materials/fourier/fourier-transform.pdf`](../materials/fourier/fourier-transform.pdf) (103쪽, 연습문제와 풀이). 0장만 따로: [`ch0-trigonometry.pdf`](../materials/fourier/ch0-trigonometry.pdf) (8쪽).
 
 ## 교재 구성
 0. 준비: 삼각함수 — 라디안, 직각삼각형 정의, 단위원, 그래프, $\tan$와 $\arctan$, 덧셈정리(증명), 작은 각 근사
