@@ -1,0 +1,121 @@
+\section{이산수학 (논리)}
+
+시작: 2026-09-28. CS 수학 로드맵의 1단계.
+
+\subsection{확정한 학습 순서}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  이산수학(논리, 집합, 함수, 관계, 귀납법) + 미적분 I
+\item
+  미적분 II\textasciitilde III (다변수, 편미분, 벡터 미적분)
+\item
+  선형대수
+\item
+  확률과 통계
+\item
+  이산수학 심화(점근 표기, 점화식, 그래프) + 미분방정식 + 신호와 시스템
+  수학
+\item
+  진로별 심화 (ML: 최적화·정보이론, 이론전산: 추상대수·오토마타)
+\end{enumerate}
+
+과목마다 정의 → 정리 이해 → 손 계산 → CS/EE 응용 순서. 교재 후보는
+Rosen(이산수학), Strang(선형대수).
+
+\subsection{1강: 명제논리}
+
+연산자 \(\neg,\ \wedge,\ \vee,\ \to,\ \leftrightarrow\). 조건문은 전제가
+거짓이면 항상 참이다.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+\(p\) & \(q\) & \(p\to q\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T & T & T \\
+T & F & F \\
+F & T & T \\
+F & F & T \\
+\end{longtable}
+
+동치 법칙:
+
+\[
+\neg(p\wedge q)\equiv\neg p\vee\neg q,\qquad \neg(p\vee q)\equiv\neg p\wedge\neg q,\qquad p\to q\equiv\neg p\vee q\equiv\neg q\to\neg p
+\]
+
+역 \(q\to p\)와 이 \(\neg p\to\neg q\)는 원래 명제와 동치가 아니다.
+
+문제와 답:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\neg(p\to q)\equiv p\wedge\neg q\) --- 진리표의 두 열이 (F, T, F,
+  F)로 같다.
+\item
+  \(\neg(p\vee(q\wedge r))\equiv\neg p\wedge(\neg q\vee\neg r)\) ---
+  괄호를 지켜야 한다.
+\item
+  ``비가 오면 우산을 챙긴다'' → 대우: 우산을 안 챙기면 비가 오지 않는다.
+  역: 우산을 챙기면 비가 온다. 이: 비가 안 오면 우산을 안 챙긴다.
+\end{enumerate}
+
+응용: AND/OR/NOT 게이트, NAND만으로 모든 회로 구성,
+\texttt{!(a\ \&\&\ b)} ↔ \texttt{!a\ \textbar{}\textbar{}\ !b}.
+
+\subsection{2강: 술어논리}
+
+술어 \(P(x)\), 정의역, 한정자 \(\forall,\exists\). 부정 규칙:
+
+\[
+\neg\forall x\,P(x)\equiv\exists x\,\neg P(x),\qquad \neg\exists x\,P(x)\equiv\forall x\,\neg P(x)
+\]
+
+한정자 순서는 바꿀 수 없다. 실수에서 \(\forall x\,\exists y\,(x+y=0)\)은
+참, \(\exists y\,\forall x\,(x+y=0)\)은 거짓.
+
+문제:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  정의역 \(\{1,2,3,4\}\), \(P(x)\) = ``\(x>3\)'': (a)
+  \(\forall x\,P(x)\) (b) \(\exists x\,P(x)\) (c)
+  \(\forall x\,\neg P(x)\) (d) \(\exists x\,\neg P(x)\)
+\item
+  부정을 술어 바로 앞까지: (a) \(\forall x\,(x>0\to x^2>0)\) (b)
+  \(\exists x\,(x\text{는 소수}\wedge x\text{는 짝수})\)
+\item
+  정수에서 \(Q(x,y)\) = ``\(x<y\)'': (a) \(\forall x\,\exists y\,Q\) (b)
+  \(\exists y\,\forall x\,Q\)
+\end{enumerate}
+
+답: 1. F, T, F, T. 2. (a) \(\exists x\,(x>0\wedge x^2\le 0)\) (b)
+\(\forall x\,(x\text{는 소수가 아님}\vee x\text{는 홀수})\). 3. (a) 참
+(\(y=x+1\)) (b) 거짓 (가장 큰 정수가 없음).
+
+응용: SQL \texttt{NOT\ EXISTS}, 프로그램 검증에서 버그 찾기 = 반례 하나
+찾기.
+
+\subsection{자주 한 실수}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\wedge\)는 둘 다 참일 때만 참인데 하나만 참이어도 T로 적음
+\item
+  \(\wedge,\vee\)가 섞인 식에 드모르간을 쓸 때 괄호 누락
+\end{itemize}
+
+\subsection{도구}
+
+문제마다 답 입력기(HTML)를 만들어 쓴다. 진리표 칸은 클릭으로 T/F 토글,
+기호는 버튼 입력, 결과는 복사해서 채팅에 붙인다.

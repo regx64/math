@@ -1,0 +1,49 @@
+# Shapley value (SHAP의 수학)
+
+2026-10-01. 설명 가능한 AI(XAI)의 SHAP 기법 밑바탕인 협력게임 이론.
+
+## 정의
+특성 집합 $N$ ($|N|=n$), 부분집합 $S$만 알 때의 예측값을 가치 함수로 둔다. 빠진 특성은 배경 데이터 $x'$로 채워 평균낸다.
+
+$$
+v(S)=\mathbb E_{x'}\big[f(x_S,\ x'_{\bar S})\big],\qquad v(\varnothing)=\mathbb E_{x'}[f(x')]
+$$
+
+특성 $i$의 기여도:
+
+$$
+\phi_i=\sum_{S\subseteq N\setminus\{i\}}\frac{|S|!\,(n-|S|-1)!}{n!}\Big[v(S\cup\{i\})-v(S)\Big]
+$$
+
+가중치는 "특성을 무작위 순서로 하나씩 넣을 때 $i$ 바로 앞에 정확히 $S$가 들어와 있을 확률"이다.
+
+효율성 (기여도의 합이 보존됨):
+
+$$
+\sum_{i=1}^{n}\phi_i=v(N)-v(\varnothing)
+$$
+
+## 2개 특성 예 (집값: 면적 A, 역세권 B)
+$v(\varnothing)=100,\ v(\{A\})=150,\ v(\{B\})=120,\ v(\{A,B\})=200$
+
+$$
+\phi_A=\tfrac12(150-100)+\tfrac12(200-120)=65,\qquad \phi_B=\tfrac12(120-100)+\tfrac12(200-150)=35
+$$
+
+합 $100=v(\{A,B\})-v(\varnothing)$.
+
+## 연습문제 ($n=3$)
+$v(\varnothing)=10,\ v(A)=20,\ v(B)=10,\ v(C)=10,\ v(AB)=30,\ v(AC)=20,\ v(BC)=10,\ v(ABC)=40$
+
+$n=3$의 가중치: $|S|=0$이면 $\tfrac13$, $|S|=1$이면 $\tfrac16$, $|S|=2$이면 $\tfrac13$.
+
+$$
+\phi_A=\tfrac13(10)+\tfrac16(20)+\tfrac16(10)+\tfrac13(30)=\tfrac{55}{3},\qquad \phi_B=\tfrac{25}{3},\qquad \phi_C=\tfrac{10}{3}
+$$
+
+합 $30=v(ABC)-v(\varnothing)$.
+
+**이상한 점.** $C$는 혼자서도, $A$나 $B$ 하나와 함께여도 값을 전혀 바꾸지 않는다. 그런데 $A,B$가 이미 있을 때만 $+10$을 만든다. 이 3자 상호작용이 셋에게 나눠지면서 $\phi_C=\tfrac{10}{3}>0$이 된다. Shapley value는 상호작용을 쪼개서 개별 기여처럼 보이게 만든다. 이게 SHAP을 "특성 중요도"로 읽을 때 생기는 비판의 출발점이다.
+
+## 실제 계산
+$2^n$개 부분집합을 다 볼 수 없어서 근사한다: KernelSHAP(가중 선형회귀), TreeSHAP(트리 구조로 다항 시간), DeepSHAP(DeepLIFT 기반).

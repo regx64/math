@@ -1,0 +1,36 @@
+\section{지수의 확장}
+
+2026-08-23.
+
+\subsection{유리수 지수}
+
+\(n^{1/k}\)는 \(k\)번 곱해서 \(n\)이 되는 양수, 즉 \(\sqrt[k]{n}\)이다.
+
+\[
+n^{1/k}=\sqrt[k]{n},\qquad n^{m/k}=\big(\sqrt[k]{n}\big)^m=\sqrt[k]{n^m}\qquad(n>0)
+\]
+
+예: \(8^{1/3}=2\), \(8^{2/3}=4\).
+
+\subsection{무리수 지수}
+
+\(n^{\sqrt k}\)에서 \(\sqrt k\)는 (완전제곱이 아니면) 무리수라서 ``몇 번
+곱한다''로는 정의할 수 없다. 두 가지 방법으로 정의한다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  유리수 근삿값의 극한: \(\sqrt2=1.4,\ 1.41,\ 1.414,\dots\)이면
+  \(2^{1.4},2^{1.41},2^{1.414},\dots\)가 한 값으로 수렴한다.
+\item
+  지수·로그 함수로:
+\end{enumerate}
+
+\[
+n^{x}=e^{x\ln n}\qquad\Rightarrow\qquad n^{\sqrt k}=e^{\sqrt k\,\ln n}
+\]
+
+예: \(2^{\sqrt2}=e^{\sqrt2\ln2}\approx2.6651\).
+
+참고: \(2^{\sqrt2}\)는 겔폰트--슈나이더 정리에 의해 초월수다.

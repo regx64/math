@@ -1,0 +1,13 @@
+# Lean 형식화
+
+2026-08-21.
+
+Lean은 정리 증명기이자 함수형 프로그래밍 언어다. 정의·정리·증명을 기계가 한 단계씩 검사할 수 있는 형태로 다시 쓰는 것이 형식화다.
+
+- 기반: 귀납적 구성의 계산(Calculus of Inductive Constructions). 명제는 타입, 증명은 그 타입의 항(커리–하워드 대응).
+- 사례: Mathlib(공동 수학 라이브러리), Liquid Tensor Experiment, PFR 추측의 형식화.
+- CS 쪽 연결: 의존 타입, 증명 보조기, 형식 검증(CompCert 컴파일러, seL4 커널).
+
+## 직접 한 것
+
+- 원 밖의 점에서 그은 접선 공식 $r(px+qy)\pm\ell(py-qx)=rd^2$를 Lean 4 (v4.23.0, core only, Mathlib 없이)로 임의의 가환환 위에서 검증. 회전·복소수 해석도 별도 파일로 검증. → [analytic-geometry.md](analytic-geometry.md)

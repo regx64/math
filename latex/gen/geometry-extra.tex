@@ -1,0 +1,129 @@
+\subsection{외심 빠르게 구하기 (2026-09-29)}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  특수한 꼴부터 확인
+
+  \begin{itemize}
+  \tightlist
+  \item
+    직각삼각형: 빗변의 중점
+  \item
+    정삼각형: 무게중심과 같음
+  \item
+    이등변삼각형: 꼭지각의 이등분선(밑변의 수직이등분선) 위
+  \item
+    직사각형·정다각형: 대각선의 교점 / 중심
+  \end{itemize}
+\item
+  일반: 한 꼭짓점을 원점으로 평행이동하면 거리 제곱 조건
+  \(|P-A|^2=|P-B|^2\)에서 이차항이 지워져 일차식만 남는다. \(A\)를
+  원점으로 옮긴 뒤 \(B'=(b_1,b_2)\), \(C'=(c_1,c_2)\)라 하면
+\end{enumerate}
+
+\[
+D=2(b_1c_2-b_2c_1),\qquad U_x=\frac{c_2(b_1^2+b_2^2)-b_2(c_1^2+c_2^2)}{D},\qquad U_y=\frac{b_1(c_1^2+c_2^2)-c_1(b_1^2+b_2^2)}{D}
+\]
+
+외심은 \(A+(U_x,U_y)\). 예: \(A(1,1),B(5,1),C(1,4)\) → \((3,\tfrac52)\)
+(직각삼각형이라 빗변 중점과 일치). 3. 반지름만 필요하면
+
+\[
+R=\frac{a}{2\sin A}=\frac{abc}{4S}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  사각형 이상은 원에 내접할 때(대각의 합이 \(180^\circ\))만 외심이 있고,
+  그때는 아무 세 꼭짓점의 외심이 전체의 외심이다.
+\end{enumerate}
+
+\subsection{기본 공식 정리 (교과서 범위)}
+
+\begin{itemize}
+\tightlist
+\item
+  원과 직선: 중심--직선 거리 \(d\)와 \(r\) 비교 (\(d<r\) 두 점, \(d=r\)
+  접함, \(d>r\) 만나지 않음). 원의 식이 복잡하면 판별식보다 거리 공식이
+  빠르다.
+\item
+  현의 길이 \(2\sqrt{r^2-d^2}\). 원 위의 점과 직선 사이 거리는 최대
+  \(d+r\), 최소 \(d-r\) (\(d>r\)).
+\item
+  접선
+
+  \begin{itemize}
+  \tightlist
+  \item
+    원 위의 점 \((x_1,y_1)\): \(x_1x+y_1y=r^2\), 중심 \((a,b)\)이면
+    \((x_1-a)(x-a)+(y_1-b)(y-b)=r^2\)
+  \item
+    기울기 \(m\): \(y=mx\pm r\sqrt{m^2+1}\)
+  \item
+    원 밖의 점: \(y-y_1=m(x-x_1)\)로 놓고 거리 \(=r\) (수직 접선 누락
+    주의)
+  \end{itemize}
+\item
+  접선의 길이: 일반형 \(x^2+y^2+Ax+By+C=0\)에 점을 대입한 값의 제곱근
+\end{itemize}
+
+\[
+\ell=\sqrt{x_1^2+y_1^2+Ax_1+By_1+C}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  극선(두 접점을 잇는 직선): \(x_1x+y_1y=r^2\)
+\item
+  두 원의 위치 관계: 중심 거리 \(d\)와 \(r_1\pm r_2\) 비교
+\item
+  공통현: 두 원의 식을 뺀다. 두 교점을 지나는 원: \(C_1+kC_2=0\)
+  (\(k\ne-1\)) 또는 \(C_1+k\cdot(\text{공통현})=0\)
+\item
+  공통접선 길이: 외접선 \(\sqrt{d^2-(r_1-r_2)^2}\), 내접선
+  \(\sqrt{d^2-(r_1+r_2)^2}\)
+\item
+  아폴로니우스의 원: \(PA:PB=m:n\) (\(m\ne n\))의 자취. 내분점과
+  외분점이 지름의 양 끝
+\end{itemize}
+
+\subsection{시험 문제: 원다발 + 근과 계수의 관계}
+
+원 \(x^2+y^2=5\)와 다른 한 원의 공통현이 \(3x+2y-5=0\)일 때, 두 교점을
+지나고 \(y\)축에 접하는 원들의 반지름의 곱은?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  교점을 지나는 원: \(x^2+y^2-5+k(3x+2y-5)=0\) (원 + \(k\cdot\)직선이 원
+  두 개를 섞는 것보다 가볍다)
+\item
+  중심 \(\left(-\tfrac{3k}{2},-k\right)\)
+\item
+  \(y\)축에 접함 ⇔ \(x=0\)을 넣은 \(y^2+2ky-5-5k=0\)이 중근 ⇔
+  \(k^2+5k+5=0\)
+\item
+  반지름 \(=|\text{중심의 }x\text{좌표}|=\tfrac32|k|\)
+\item
+  \(k\)를 직접 구하지 않고 \(k_1k_2=5\)만 쓴다:
+\end{enumerate}
+
+\[
+\frac94|k_1k_2|=\frac94\cdot5=\frac{45}{4}
+\]
+
+판별식 \(25-20>0\)이라 원이 실제로 두 개다.
+
+\subsection{원본 파일 (이 저장소에 없음)}
+
+``Unknown purpose inquiry'' 채팅(2026-09-27)에서 만든 다음 파일은 다시
+올려야 들어온다: 기본·심화 공식 정리 PDF, 공식별 예제 풀이 PDF, Lean 4
+검증 파일 2개(접선 공식, 회전·복소수 해석), 접선 공식 유도 애니메이션
+MP4.

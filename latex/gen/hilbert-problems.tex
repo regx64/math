@@ -1,0 +1,129 @@
+\section{힐베르트 11번·24번 문제}
+
+2026-10-03.
+
+\subsection{11번: 대수적 수 계수 이차형식의 해}
+
+이차형식 \(Q(x)=\sum a_{ij}x_ix_j\) (\(a_{ij}\in K\), \(K\)는 수체)의
+비자명해. 답은 해를 어디서 찾느냐에 따라 갈린다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{대수적 폐포 \(\overline{\mathbb Q}\):} 변수가 2개 이상이면
+  항상 있다. 대각화 후 \(ax^2+by^2=0\)에서 \(x=\sqrt{-b/a}\,y\).
+\item
+  \textbf{수체 \(K\):} 항상은 아니지만 완전히 판정된다
+  (하세--민코프스키).
+\end{enumerate}
+
+\[
+Q\text{가 }K\text{에서 비자명해를 가짐}\iff\text{모든 완비화 }K_v\text{에서 비자명해를 가짐}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  반례: \(x^2+y^2+z^2=0\) (\(\mathbb R\)에서 막힘), \(x^2+y^2-3z^2=0\)
+  (\(\mathbb Q_3\)에서 막힘)
+\item
+  변수 5개 이상이면 비아르키메데스 자리에서는 항상 해가 있어서 실수
+  자리의 부호만 보면 된다
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{정수해 \(\mathcal O_K\):} 국소--대역 원리가 깨진다.
+\end{enumerate}
+
+\[
+x^2+11y^2=3
+\]
+
+은 \(\mathbb R\)과 모든 \(\mathbb Z_p\)에서 해가 있지만 정수해가 없다.
+같은 종(genus)의 \(3x^2+2xy+4y^2\)는 \((1,0)\)에서 3을 표현한다.
+판별식은 둘 다 \(-44\).
+
+그래서 11번은 보통 ``부분적으로 해결''로 분류된다. 유리해는
+하세(1923--24)가 해결, 정수해는 지겔 등이 상당 부분 해결.
+
+\subsubsection{직접 세워 본 국소--대역 원리 (종 버전)}
+
+조건 없는 정수해 버전은 \(x^2+11y^2=3\) 때문에 불가능하다. 여기서 ``조건
+없다''는 모든 \(Q\), 모든 \(c\)에 예외 없이 적용된다는 뜻이다. 그래서
+가정을 강화하거나 결론을 약화해야 한다. 결론을 약화한 버전 (새 정리는
+아니고 종 이론의 알려진 결과를 재구성한 것):
+
+\textbf{설정.} \((V,Q)\)는 \(\mathbb Q\) 위의 비퇴화 이차공간,
+\(L\subset V\)는 \(\mathbb Z\)-격자, \(L_p=L\otimes\mathbb Z_p\),
+\(c\in\mathbb Z\setminus\{0\}\). \(\operatorname{gen}(L)\)은 모든
+\(p\)에서 \(M_p\cong L_p\)인 격자 \(M\)의 집합.
+
+\textbf{정리.}
+
+\[
+c\in Q(V\otimes\mathbb R)\ \text{이고 모든 }p\text{에서 }c\in Q(L_p)\iff\text{어떤 }M\in\operatorname{gen}(L)\text{에 대해 }c\in Q(M)
+\]
+
+\textbf{증명} (\(\Rightarrow\)).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(Q\perp\langle-c\rangle\)가 모든 자리에서 등방이므로
+  하세--민코프스키로 \(\mathbb Q\)에서도 등방. 따라서 \(Q(v)=c\)인
+  \(v\in V\)가 있다.
+\item
+  \(v\)의 분모에 나오는 소수는 유한 개이므로 유한집합 \(S\) 밖의
+  \(p\)에서 \(v\in L_p\).
+\item
+  \(p\in S\)에서 가정으로 \(Q(w_p)=c\)인 \(w_p\in L_p\)가 있고, 비트
+  정리로 \(\sigma_p(w_p)=v\)인 \(\sigma_p\in O(V_p)\)가 있다.
+\item
+  \(M_p=\sigma_p(L_p)\) (\(p\in S\)), \(M_p=L_p\) (\(p\notin S\))로 두면
+  \(M=V\cap\bigcap_pM_p\)는 격자다.
+\item
+  모든 \(p\)에서 \(v\in M_p\)이므로 \(v\in M\)이고
+  \(M\in\operatorname{gen}(L)\). \(\blacksquare\)
+\end{enumerate}
+
+\textbf{따름정리.} 종에 류(class)가 하나뿐이면 정수해 국소--대역 원리가
+그대로 성립한다. \(x^2+y^2\), \(x^2+y^2+z^2\), \(x^2+y^2+z^2+w^2\)가
+그렇다 (세 제곱수 정리: \(n\ne4^a(8b+7)\)).
+
+\textbf{더 정밀한 결과.} 부정부호 3변수 이상은 스피너 종 하나에 류
+하나라서 장애물이 스피너 예외로 계산된다. 정수점 장애물은 브라우어--마닌
+장애물뿐(Colliot-Thélène--Xu). 정부호 5변수 이상은 충분히 큰 \(c\)에서
+성립(Tartakowsky).
+
+\subsection{24번: 증명의 단순성}
+
+1900년 발표 목록에서 빠졌다가 2000년 뤼디거 틸레가 힐베르트의 노트에서
+찾아냈다. 내용: 가장 단순한 증명을 판정하는 기준을 세우고, 증명 방법
+자체의 이론을 만들 것. 참·거짓 문제가 아니라 연구 방향이라 ``해결''
+판정이 없다.
+
+진척 (방향별):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{증명 길이:} 쿡--렉하우(1979)의 증명 체계. 비둘기집 원리의 분해
+  증명은 지수 길이(Haken 1985). 모든 체계에 대한 초다항 하한은
+  \(\mathrm{NP}\ne\mathrm{coNP}\)와 동치라 미해결. 괴델의 속도 향상
+  정리로 ``가장 짧은 증명''은 체계에 의존한다.
+\item
+  \textbf{증명 동일성:} 정규화 기준(Prawitz), 일반성 기준(Lambek),
+  증명망, Hughes의 조합적 증명. Straßburger(2019)가 증명 동일성의 네
+  가지 목표 제시.
+\item
+  \textbf{2019년 Phil. Trans. R. Soc. A 특집호}, 자동 정리
+  증명(Thiele--Wos 2002), 역수학.
+\end{itemize}
+
+단순성의 합의된 정의는 아직 없다.
