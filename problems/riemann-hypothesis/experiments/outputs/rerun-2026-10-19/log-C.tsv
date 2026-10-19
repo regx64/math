@@ -1,0 +1,6 @@
+dir	script	exit	seconds
+jensen-interlacing	coeffs.py	0	156
+jensen-interlacing	test.py	0	209
+jensen-interlacing	ce.py	1	4
+jensen-interlacing	ce2.py	0	1
+jensen-interlacing	ce_exact.py	0	3

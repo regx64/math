@@ -1,0 +1,8 @@
+ indicator D=1.0 C=0 n=30: best found 0.59917   (uniform s=2.7 start: 0.66491; infinite s=2 lattice: 0.25454)
+ indicator D=1.0 C=2 n=30: best found 0.37829   (uniform s=2.7 start: 0.66491; infinite s=2 lattice: 0.25454)
+ indicator D=2.0 C=0 n=30: best found 0.25413   (uniform s=2.7 start: 0.25264; infinite s=2 lattice: 0.02338)
+ indicator D=2.0 C=2 n=30: best found 0.16934   (uniform s=2.7 start: 0.25264; infinite s=2 lattice: 0.02338)
+ taper0.1  D=1.0 C=0 n=30: best found 0.55799   (uniform s=2.7 start: 0.90521; infinite s=2 lattice: 0.43061)
+ taper0.1  D=1.0 C=2 n=30: best found 0.40497   (uniform s=2.7 start: 0.90521; infinite s=2 lattice: 0.43061)
+ taper0.1  D=2.0 C=0 n=30: best found 0.27535   (uniform s=2.7 start: 0.65271; infinite s=2 lattice: 0.07864)
+ taper0.1  D=2.0 C=2 n=30: best found 0.22520   (uniform s=2.7 start: 0.65271; infinite s=2 lattice: 0.07864)

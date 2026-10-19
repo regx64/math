@@ -1,0 +1,28 @@
+E4. Periodic exact model, N = d zeros: L1 off-line pairs at x=0..L1-1 (distance Delta) + (d-2L1) simple on-line
+    zeros equally spaced on the rest. Checks the hypotheses Theorem S uses: tr G = N, ||G||_HS^2 <= R N, block structure.
+ window indicator: R(psi) = 1.33333
+  d=301 L1=24 (0.159 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.8044 (<= R? False)  tr(Q_-)=   11.560  sum(S-1)=     64.22  ratio=0.1800  N0s/N=0.841
+  d=301 L1=24 (0.159 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=242.6946 (<= R? False)  tr(Q_-)=  268.977  sum(S-1)=    998.64  ratio=0.2693  N0s/N=0.841
+  d=301 L1=30 (0.199 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.8956 (<= R? False)  tr(Q_-)=   12.206  sum(S-1)=     80.28  ratio=0.1520  N0s/N=0.801
+  d=301 L1=30 (0.199 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=263.6350 (<= R? False)  tr(Q_-)=  287.151  sum(S-1)=   1248.29  ratio=0.2300  N0s/N=0.801
+  d=601 L1=48 (0.160 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.5754 (<= R? False)  tr(Q_-)=   13.623  sum(S-1)=    128.45  ratio=0.1061  N0s/N=0.840
+  d=601 L1=48 (0.160 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=155.5349 (<= R? False)  tr(Q_-)=  327.022  sum(S-1)=   1997.38  ratio=0.1637  N0s/N=0.840
+  d=601 L1=60 (0.200 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.6455 (<= R? False)  tr(Q_-)=   14.269  sum(S-1)=    160.56  ratio=0.0889  N0s/N=0.800
+  d=601 L1=60 (0.200 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=166.0928 (<= R? False)  tr(Q_-)=  345.231  sum(S-1)=   2496.73  ratio=0.1383  N0s/N=0.800
+  d=1201 L1=96 (0.160 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.4294 (<= R? False)  tr(Q_-)=   15.686  sum(S-1)=    256.90  ratio=0.0611  N0s/N=0.840
+  d=1201 L1=96 (0.160 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=95.1934 (<= R? False)  tr(Q_-)=  385.144  sum(S-1)=   3994.82  ratio=0.0964  N0s/N=0.840
+  d=1201 L1=120 (0.200 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.4888 (<= R? False)  tr(Q_-)=   16.333  sum(S-1)=    321.13  ratio=0.0509  N0s/N=0.800
+  d=1201 L1=120 (0.200 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=100.5067 (<= R? False)  tr(Q_-)=  403.362  sum(S-1)=   4993.53  ratio=0.0808  N0s/N=0.800
+ window taper0.1: R(psi) = 1.40914
+  d=301 L1=24 (0.159 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2441 (<= R? True)  tr(Q_-)=    2.155  sum(S-1)=     45.01  ratio=0.0479  N0s/N=0.841
+  d=301 L1=24 (0.159 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=5.6202 (<= R? False)  tr(Q_-)=   36.528  sum(S-1)=    533.73  ratio=0.0684  N0s/N=0.841
+  d=301 L1=30 (0.199 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2764 (<= R? True)  tr(Q_-)=    2.154  sum(S-1)=     56.27  ratio=0.0383  N0s/N=0.801
+  d=301 L1=30 (0.199 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=5.6306 (<= R? False)  tr(Q_-)=   36.540  sum(S-1)=    667.17  ratio=0.0548  N0s/N=0.801
+  d=601 L1=48 (0.160 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2285 (<= R? True)  tr(Q_-)=    2.154  sum(S-1)=     90.03  ratio=0.0239  N0s/N=0.840
+  d=601 L1=48 (0.160 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=3.4202 (<= R? False)  tr(Q_-)=   36.543  sum(S-1)=   1067.47  ratio=0.0342  N0s/N=0.840
+  d=601 L1=60 (0.200 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2618 (<= R? True)  tr(Q_-)=    2.154  sum(S-1)=    112.53  ratio=0.0191  N0s/N=0.800
+  d=601 L1=60 (0.200 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=3.4425 (<= R? False)  tr(Q_-)=   36.543  sum(S-1)=   1334.34  ratio=0.0274  N0s/N=0.800
+  d=1201 L1=96 (0.160 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2207 (<= R? True)  tr(Q_-)=    2.154  sum(S-1)=    180.05  ratio=0.0120  N0s/N=0.840
+  d=1201 L1=96 (0.160 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=2.3174 (<= R? False)  tr(Q_-)=   36.543  sum(S-1)=   2134.94  ratio=0.0171  N0s/N=0.840
+  d=1201 L1=120 (0.200 of zeros off-line) D=0.5: tr/N=1.000000  HS/N=1.2545 (<= R? True)  tr(Q_-)=    2.154  sum(S-1)=    225.07  ratio=0.0096  N0s/N=0.800
+  d=1201 L1=120 (0.200 of zeros off-line) D=1.0: tr/N=1.000000  HS/N=2.3457 (<= R? False)  tr(Q_-)=   36.543  sum(S-1)=   2668.67  ratio=0.0137  N0s/N=0.800

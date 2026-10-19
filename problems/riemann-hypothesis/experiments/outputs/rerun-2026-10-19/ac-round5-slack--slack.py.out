@@ -1,0 +1,5 @@
+Delta 0.0  sum v^2 = (1-0j)  |v|^2 = 1.0  S = 1.0  block eigenvalues [2.]  predicted 2.0 -0.0
+Delta 0.1  sum v^2 = (1+0j)  |v|^2 = 1.067107  S = 1.067107  block eigenvalues [-0.067107  2.067107]  predicted 2.067107 -0.067107
+Delta 0.3  sum v^2 = (1-0j)  |v|^2 = 1.706706  S = 1.706706  block eigenvalues [-0.706706  2.706706]  predicted 2.706706 -0.706706
+Delta 0.5  sum v^2 = (1-0j)  |v|^2 = 3.675928  S = 3.675928  block eigenvalues [-2.675928  4.675928]  predicted 4.675928 -2.675928
+Delta 1.0  sum v^2 = (1-0j)  |v|^2 = 42.605984  S = 42.605984  block eigenvalues [-41.605984  43.605984]  predicted 43.605984 -41.605984

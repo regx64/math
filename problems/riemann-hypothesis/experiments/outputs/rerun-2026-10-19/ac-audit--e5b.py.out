@@ -1,0 +1,5 @@
+E5b. Explicit density-one clusters (pairs at spacing exactly 2, rest of period empty), periodic model.
+ indicator D=1.0: clusters of 30/100/250/500 pairs: 0.3366  0.2852  0.2698  0.2633   -> infinite lattice 0.2545
+ indicator D=2.0: clusters of 30/100/250/500 pairs: 0.1739  0.0827  0.0542  0.0415   -> infinite lattice 0.0234
+ taper0.1  D=1.0: clusters of 30/100/250/500 pairs: 0.4485  0.4360  0.4328  0.4317   -> infinite lattice 0.4306
+ taper0.1  D=2.0: clusters of 30/100/250/500 pairs: 0.1145  0.0894  0.0829  0.0808   -> infinite lattice 0.0786

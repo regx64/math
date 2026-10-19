@@ -1,0 +1,4 @@
+Delta=1.0 start spacing 2.0: local-search minimum of trQ-/sum(S-1) = 0.3434 (start 0.3420)
+Delta=1.0 start spacing 3.0: local-search minimum of trQ-/sum(S-1) = 0.5766 (start 0.5801)
+Delta=2.0 start spacing 2.0: local-search minimum of trQ-/sum(S-1) = 0.2225 (start 0.2093)
+Delta=2.0 start spacing 3.0: local-search minimum of trQ-/sum(S-1) = 0.3043 (start 0.3024)

@@ -1,0 +1,11 @@
+E4b. Bulk HS/N (extrapolated d->inf from d=601,1201: HS/N = h_bulk + c/d) vs R; taper0.1 and indicator, Delta=0.5
+  taper0.1  offline fraction 0.200: bulk HS/N = 1.2472   R = 1.4091   admissible(bulk<=R): True
+  taper0.1  offline fraction 0.240: bulk HS/N = 1.2996   R = 1.4091   admissible(bulk<=R): True
+  taper0.1  offline fraction 0.280: bulk HS/N = 1.3646   R = 1.4091   admissible(bulk<=R): True
+  taper0.1  offline fraction 0.320: bulk HS/N = 1.4288   R = 1.4091   admissible(bulk<=R): False
+  taper0.1  offline fraction 0.360: bulk HS/N = 1.4892   R = 1.4091   admissible(bulk<=R): False
+  indicator offline fraction 0.200: bulk HS/N = 1.3319   R = 1.3333   admissible(bulk<=R): True
+  indicator offline fraction 0.240: bulk HS/N = 1.3781   R = 1.3333   admissible(bulk<=R): False
+  indicator offline fraction 0.280: bulk HS/N = 1.4218   R = 1.3333   admissible(bulk<=R): False
+  indicator offline fraction 0.320: bulk HS/N = 1.4629   R = 1.3333   admissible(bulk<=R): False
+  indicator offline fraction 0.360: bulk HS/N = 1.5015   R = 1.3333   admissible(bulk<=R): False

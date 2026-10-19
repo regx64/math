@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/tmp.7XkiLs1zyr/jensen-interlacing/ce.py", line 12, in <module>
+    r=polyroots([binomial(d,j)*G[n+j] for j in reversed(range(d+1))],maxsteps=300,extraprec=300)
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/calculus/polynomials.py", line 196, in polyroots
+    raise ctx.NoConvergence("Didn't converge in maxsteps=%d steps." \
+            % maxsteps)
+mpmath.libmp.libhyper.NoConvergence: Didn't converge in maxsteps=300 steps.

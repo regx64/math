@@ -35,6 +35,7 @@ regx64(hoon)가 직접 공부하고 시도한 수학 기록.
 | Erdős #1212 | 두 경로 모두 막힘 | [erdos-1212.md](problems/erdos-1212.md) |
 | 퍼콜레이션 임계값 주장 검토 | 핵심 결과는 Harris–Kesten의 따름정리 | [percolation-claim-review.md](problems/percolation-claim-review.md) |
 | $3\times3$ 행렬곱 rank ($\mathbb F_2$) | flip 탐색으로 22 없음, 하한 확장의 다음 지점 특정 | [matrix-mult-3x3.md](problems/matrix-mult-3x3.md) |
+| 리만 가설 (2026-10-18~19) | 증명 아님. 방법의 한계 결과(Landau 상수, 분해능 장벽, AC 반박·Theorem A″), 철회된 주장 표시, AC_F 미해결 | [riemann-hypothesis/README.md](problems/riemann-hypothesis/README.md) (영문 아카이브) |
 | 직접 만든 문제 | 덧셈·XOR 동시 Sidon, 작은 계수 컨볼루션 | [original-problems.md](problems/original-problems.md) |
 | 난제 후보 | 미선택 | [candidates.md](problems/candidates.md) |
 

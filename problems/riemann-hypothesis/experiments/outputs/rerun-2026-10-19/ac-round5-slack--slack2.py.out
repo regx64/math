@@ -1,0 +1,7 @@
+random configurations (p pairs, Delta ~ U[0,Dmax]):
+ p=  5 Dmax=1.0: trQ-/sum(S-1) in [0.986,0.999]   sum(q-2)^2/sum(S-1)^2 in [0.991,1.016]
+ p= 30 Dmax=1.0: trQ-/sum(S-1) in [0.848,0.949]   sum(q-2)^2/sum(S-1)^2 in [0.918,1.150]
+ p= 30 Dmax=0.3: trQ-/sum(S-1) in [0.730,0.899]   sum(q-2)^2/sum(S-1)^2 in [1.449,15.138]
+ p= 60 Dmax=0.5: trQ-/sum(S-1) in [0.680,0.819]   sum(q-2)^2/sum(S-1)^2 in [2.290,3.374]
+ p=100 Dmax=0.2: trQ-/sum(S-1) in [0.395,0.534]   sum(q-2)^2/sum(S-1)^2 in [81.359,176.062]
+ p=100 Dmax=1.0: trQ-/sum(S-1) in [0.710,0.776]   sum(q-2)^2/sum(S-1)^2 in [1.031,1.327]

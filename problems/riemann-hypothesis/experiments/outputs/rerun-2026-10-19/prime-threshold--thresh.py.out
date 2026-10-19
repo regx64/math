@@ -1,0 +1,10 @@
+target 1/2 log(t0/2pi) at t0=3e12: 13.445878169093657
+rigorous trivial bound: need S(X)>target -> X >= 67  S(X-1)= 13.335482937820126  a>= 2.102346309695483
+a=0.3466: lambda_max=0.2206  trivial S(e^2a)=0.4901
+a=1.0: lambda_max=0.9710  trivial S(e^2a)=2.9262
+a=1.5: lambda_max=2.1494  trivial S(e^2a)=6.5078
+a=2.0: lambda_max=3.9931  trivial S(e^2a)=12.1916
+a=2.5: lambda_max=6.8305  trivial S(e^2a)=21.2758
+a=3.0: lambda_max=11.2717  trivial S(e^2a)=37.5952
+a=3.5: lambda_max=18.3113  trivial S(e^2a)=63.7517
+a=4.0: lambda_max=29.6177  trivial S(e^2a)=106.7738

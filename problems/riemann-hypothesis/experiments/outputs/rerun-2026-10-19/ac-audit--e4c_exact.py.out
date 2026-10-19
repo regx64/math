@@ -1,0 +1,3 @@
+ indicator: R=1.33333  int psi^4=1.00000  H(0)=1.00000  max lam with H<=R: 0.1280  => off-line fraction of zeros 0.2561  (2-R=0.6667)
+ taper0.1 : R=1.40914  int psi^4=1.11507  H(0)=1.11507  max lam with H<=R: 0.1537  => off-line fraction of zeros 0.3075  (2-R=0.5909)
+ MT       : R=1.33268  int psi^4=1.02309  H(0)=1.02309  max lam with H<=R: 0.1472  => off-line fraction of zeros 0.2944  (2-R=0.6673)

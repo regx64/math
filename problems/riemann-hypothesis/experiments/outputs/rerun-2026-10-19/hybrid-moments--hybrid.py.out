@@ -1,0 +1,5 @@
+eps=0 -> 0.7037037037037036 (=19/27= 0.7037037037037037 )
+to certify 0.6725: need off-line mollified energy E <= 9.193e-04 * N L^2
+to certify 0.68183: need off-line mollified energy E <= 4.546e-04 * N L^2
+to certify 0.69: need off-line mollified energy E <= 1.795e-04 * N L^2
+to certify 0.7: need off-line mollified energy E <= 1.321e-05 * N L^2

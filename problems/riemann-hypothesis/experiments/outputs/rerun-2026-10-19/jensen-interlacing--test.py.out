@@ -1,0 +1,9 @@
+Jensen-normalized gamma(n)=n!*a_n cases: 338 non-hyperbolic: [] interlacing fails: []
+raw Taylor a_n (user's normalization) cases: 338 non-hyperbolic: [] interlacing fails: []
+1 1.0748439425 2.149687885
+2 1.06274366627 1.59411549941
+3 1.05430333113 1.40573777485
+4 1.04805047891 1.31006309864
+5 1.04321250596 1.25185500715
+6 1.03934510336 1.21256928725
+7 1.0361742823 1.18419917977
